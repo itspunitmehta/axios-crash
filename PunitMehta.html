@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+      }
+      
+      ul {
+        list-style: none;
+      }
+      
+      ul li {
+        padding: 5px;
+        background: #f4f4f4;
+        margin: 5px 0;
+      }
+      
+      header {
+        background: #f4f4f4;
+        padding: 1rem;
+        text-align: center;
+      }
+      
+      .container {
+        margin: auto;
+        width: 500px;
+        overflow: auto;
+        padding: 3rem 2rem;
+      }
+      
+      #my-form {
+        padding: 2rem;
+        background: #f4f4f4;
+      }
+      
+      #my-form label {
+        display: block;
+      }
+      
+      #my-form input[type='text'] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      #my-form input[type='email'] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        border: 0;
+        background: #333;
+        color: #fff;
+        border-radius: 5px;
+        margin: 5px 0;
+      }
+      
+      .btn:hover {
+        background: #444;
+      }
+      
+      .bg-dark {
+        background: #333;
+        color: #fff;
+      }
+      
+      .error {
+        background: orangered;
+        color: #fff;
+        padding: 5px;
+        margin: 5px;
+      }
+      body {
+          background-image: url('https://lh3.googleusercontent.com/mohjeCt6HRxjz3tiwvE3KZk3nfKC8VfQhxs0i7jqBM7enjeiXMlIS7_A0jUdtDNwGky_hKiwton_FHFg6S2GPfYoDrU8qITQJYEilZAMxsZ2TwOIfC-oIR1MDVQyFgcDcDqt_Z5gJrmkHIJT-7_-0zFt7cjiB9iV93JB1YTYwFhIG3Khaq8Iho2H_g7gEfmiexxB09YcR-K_K4N_s7WPNmChrGbHq-mPeaOoM1bJ6r5WFkOhTvaRRzIxhRYGI8--yRALgTmLSMsA0qsBX_sy_Qy0EXQB33Y2iobK05u0Y6TptaUofJum1RUZA9zWUfY-LnHU9PQCtRZamK-26xveelQlj_lUJW1wMw0olCTtxh4fB9pCA2U_UNE3h2emLwV9mvgKIgkvIOMNE6M-0nGdVf5mVLv_4JepIrzwIwxQLxxY-w-mgJHfBjX1tfELEo8W6NpK0yX24zop5vjuvLbUXpymnpOX-9BN5CGb4Rnp5p69E9fxrFFUkL-xcsgZFK-Bp3DGvF_fEz-uty_1V7On1E-sQ0zfEVHiGCmTQQ368z-78Ad2ikWzg5kySBM57747XZ6Nfc1TuxYmXl1LfSb79KH_ctNluXrTkpZXlirJezCs4Z8zMl-FBVZZ6ZGmuMntcLhQM7kCYNIU6UFhWaba6ZKLIThjPya2Rcftr42Zt2KdrX1eHmwTrLpdGOeE9C8g6WM-53g5jMMmUBNXZo5spj-t=w328-h230-no?authuser=0');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;
+        }
+    </style>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Book Your Appointment</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+  </head>
+
+  <body>
+    <header>
+      <h1>Appointment Booking App</h1>
+    </header>
+    <section class="container">
+    
+    
+      <form onsubmit="saveToLocalStorage(event)" id="my-form">
+        <h1>Add User</h1>
+        <div id="app"></div>
+        <div>
+          <label for="name">Username:</label>
+          <input type="text" id="name" placeholder="Username" pattern="[A-Za-z0-9]+" 
+          title="letters and numbers only, no  punctuation or special characters"><required />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="xyz@mail.com" required />
+      </div>
+        <input type="submit" id="submit" value="Sign Up" class="btn"/>
+        <!-- style="color:rgb(34, 16, 0); border: 2px solid rgb(3, 24, 27); background-color: rgb(255, 47, 57);"  -->
+
+      </form>
+      <ul id="users"></ul>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+
+    <script >
+        const submitButton = document.getElementById("submit");
+
+        axios.get("https://crudcrud.com/api/b63d946428c84184ac5466f2eba05c44/dataAppointment")
+        .then((response)=>{
+          dataAppointment(response.data)
+          console.log(response.data)
+        })
+        .catch((err)=>{
+          console.log(err)
+        })
+
+        function dataAppointment(data){
+          const appoinment = data;
+        console.log(appoinment);
+          for(var i=0;i<appoinment.length;i++){
+            var userD = appoinment[i];
+            // console.log(userD);
+          showUserOnScreen(userD);
+          }
+        }
+
+const myForm = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+// myForm.addEventListener('submit', onSubmit);
+
+
+function saveToLocalStorage(event) {
+    event.preventDefault();
+
+    const myObj = {
+        name: nameInput.value,
+        email: emailInput.value
+};
+    
+    const jsonMyObj = JSON.stringify(myObj);
+    axios.post("https://crudcrud.com/api/b63d946428c84184ac5466f2eba05c44/dataAppointment", myObj)
+    .then((response)=>{
+      showUserOnScreen(response.data);
+      console.log(response)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+    
+    // localStorage.setItem(myObj.email,jsonMyObj);
+    // const NotJsonMyobj = JSON.parse(localStorage.getItem(myObj.email));
+    // console.log(NotJsonMyobj);
+    // showUserOnScreen(myObj);
+};
+
+function showUserOnScreen(user){
+
+    if(localStorage.getItem(user.email) !== null);
+    // console.log(localStorage.getItem(user.email));
+
+    removeUserFromScreen(user.email);
+
+    const parentNode = document.getElementById('users');
+    const childHTML = `<li id=${user.email}> ${user.name}- ${user.email} 
+                        <button style="border:2px solid red" onclick=deleteUser('${user.email}')> Delete User </button>
+                        <button style="border:2px solid green" onclick=editUserDetails('${user.email}','${user.name}')> Edit Details </button>
+    </li>`;
+
+    parentNode.innerHTML = parentNode.innerHTML + childHTML;
+    nameInput.value = '';
+    emailInput.value = '';
+}
+
+function deleteUser(emailId){
+    // console.log(emailId);
+    var result = confirm("Are you sure? Do you want to delete user?");
+    if(result){
+    localStorage.removeItem(emailId);
+    removeUserFromScreen(emailId);
+    {
+    alert("User deleted successfully!")
+    }
+    }
+    // alert("User deleted successfully!")
+
+}
+
+
+function editUserDetails(emailId, name){
+    document.getElementById('email').value = emailId;
+    document.getElementById('name').value = name;
+
+    deleteUser(emailId);
+}
+
+
+
+function removeUserFromScreen(emailId){
+    const parentNode = document.getElementById('users');
+    const childNodeToBeDeleted = document.getElementById(emailId);
+    // console.log(childNodeToBeDeleted);
+    if(childNodeToBeDeleted){
+        parentNode.removeChild(childNodeToBeDeleted);
+    }
+}
+    </script>
+  </body>
+</html>
