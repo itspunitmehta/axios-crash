@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+      }
+      
+      ul {
+        list-style: none;
+      }
+      
+      ul li {
+        padding: 5px;
+        background: #f4f4f4;
+        margin: 5px 0;
+      }
+      
+      header {
+        background-image: url('https://lh3.googleusercontent.com/JX6CfINRoXi3TpITfaHWVws-aFh8nuITLZwuKRiIkMy9fYoX_dEgkZcpLwZsaEmGcUVweLo40ooiT8MNIHUDl4Te72AYkTt9JFjNLB5Fucz_Ael7j3QWu4Zb9ZYjRoQ-Fct3T3pMY1FKmFQhgq_ctXsW7obMCcimXhBzzt5YOAG-GwOIekXuMyIQjP9rMZT-kYvsVeL2Yc5EnFJj99uNUIJGuJ5xeNcIl3M-bxt7ADFHkeIXZ3sma7tiiQnmNY2ebTb4kNME_etXmJUF-nj9s1ghicdqJJFPCyuJQ2imMMLdapOFMRfXfFwZ4OUHBYbgWnUqcvCCVo1lEZcU41plGxxBkOPM8eeYztOhCf14v--xtfdZ6Mok43dhRJKhUGZv_wJVxvdJvLdvy1RWwcSxLhDATO9k8tGYfrATcRvTQIGsdfdoWjOETCH90CXE3W26MMQf6nVm3PYIoa7Msqxc2yYI9kw-G9Rc1MQab59vBtgs-XJRCCjRuKs7dd0KhI-Md-3IRj0aw7Q4QAajkgs2QuWmCtXMClw-32-Vi95KrfZTi1_V0XgfcPg6ssmUFQgBVoufl00JazZdy49jzeUqJLgOgm1bsXc_EFBbfgSC72ZJilVEAq3K5NNKYTzxtBEIdpEAEI2mG_px1OUb_Bm6tDrsTvuHt90VkFcTki2IB27ipw8JVNpJATIqFN7fc7wMJ-fvCLJWGjtdnJCx0zI7exAZ=w325-h216-no?authuser=0');
+        /* background: #34d8d0; */
+        padding: 1rem;
+        text-align: center;
+      }
+      
+      .container {
+        margin: auto;
+        width: 500px;
+        overflow: auto;
+        padding: 3rem 2rem;
+      }
+      
+      #my-form {
+        padding: 2rem;
+        background: #c7b1b1;
+      }
+      
+      #my-form label {
+        display: block;
+      }
+      
+      #my-form input[type='text'] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      #my-form input[type='email'] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        border: 0;
+        background: #333;
+        color: #fff;
+        border-radius: 5px;
+        margin: 5px 0;
+      }
+      
+      .btn:hover {
+        background: #444;
+      }
+      
+      .bg-dark {
+        background: #333;
+        color: #fff;
+      }
+      
+      .error {
+        background: orangered;
+        color: #fff;
+        padding: 5px;
+        margin: 5px;
+      }
+      body {
+          background-image: url('https://lh3.googleusercontent.com/rw-0jWMlik9oaSJa4YUPF9kdDjPQfO1gUQdgA21IvUq5jUcOPIeyh6F2FYMvomyPsZeJ5gSg_rV9iYWhP1-HAwzFvN3CANOCE0YA_e7-b-Q2S7dyswlGmsL0vc_BhWkvl_F3e-KDf-zXx9MLdbSTvs1Zyn4hJTTz63akspKAXAtpAhJEHaymO0gJYh7G_eFYGziP-JFncSP7UvjwszLYbW9UNwZFNLTHyuOspQeVg552NM6dTwFIZNtRykBpGr-XIfpzDutfwau_sXJ2mBt7cnDQHdTDnpuLdVuf59F1BY4xRsgms-ehfKh0LbxGLHNQ7BgvdYhmkfbSzrXyb1SCa69iiUnHnphm9ptscdXhiaCxEHMFQIMVrfkS2FVzsuOQB7PGrKHjwv6o6bUKVQe-7eyYxU1A11xHmat8VE8XzOLxrAmmy8pT20TxCqPX0smD_NwlWKIZe8hjg1pncE1YWeo22Fh9eggLR8L5nFYA-ntS5EGkPlp0MLY4ILcMOsX6WUYCe2ATnaPR8ofiZtnz8fadBo0FdwF3O5wTee1SoltUXCjD2de77s43vOS9bTtiWUvCWWIsIOBabSg9HccubsVEooWOMdeoNsTlXeDcOLfN42pA1r8DZaPyl1bUHgoE7dcMMjIhCXyZmLaJ78mlpmz6Wrj_Fqo0gUXFo3GG3PBN2sFiVX0SJ_9MdFiqI-6OVdOeTgmyucV5_XJ7LXIIJ2Y7=w1388-h780-no?authuser=0');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;
+        }
+    </style>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Book Your Appointment</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+  </head>
+
+  <body>
+    <header>
+      <h1>Appointment Booking App</h1>
+    </header>
+    <section class="container">
+    
+    
+      <form onsubmit="saveToLocalStorage(event)" id="my-form">
+        <h1>Add User</h1>
+        <div id="app"></div>
+        <div>
+          <label for="name">Username:</label>
+          <input type="text" id="name" placeholder="Username" pattern="[A-Za-z0-9]+" 
+          title="letters and numbers only, no  punctuation or special characters"><required />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="xyz@mail.com" required />
+      </div>
+        <input type="submit" id="submit" value="Sign Up" class="btn"/>
+        <!-- style="color:rgb(34, 16, 0); border: 2px solid rgb(3, 24, 27); background-color: rgb(255, 47, 57);"  -->
+
+      </form>
+      <ul id="users"></ul>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+
+    <script >
+        const submitButton = document.getElementById("submit");
+
+        let userIdAvailable;
+
+        axios.get("https://crudcrud.com/api/41fdb3f8368248508a86382331ebbdfe/dataAppointment")
+        .then((response)=>{
+          // console.log(response.data)
+          for(var i=0;i<response.data.length;i++){
+          showUserOnScreen(response.data[i]);
+          }
+        })
+        .catch((err)=>{
+          console.log(err)
+        })
+
+const myForm = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+// myForm.addEventListener('submit', onSubmit);
+
+
+function saveToLocalStorage(event) {
+    event.preventDefault();
+    console.log(userIdAvailable);
+    const myObj = {
+        name: nameInput.value,
+        email: emailInput.value
+};
+    
+    axios.post("https://crudcrud.com/api/41fdb3f8368248508a86382331ebbdfe/dataAppointment", myObj)
+    .then((response)=>{
+      showUserOnScreen(response.data);
+      console.log(response)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+    
+    // localStorage.setItem(myObj.email,jsonMyObj);
+    // const NotJsonMyobj = JSON.parse(localStorage.getItem(myObj.email));
+    // console.log(NotJsonMyobj);
+    // showUserOnScreen(myObj);
+};
+
+function showUserOnScreen(user){
+
+    if(localStorage.getItem(user.email) !== null);
+    // console.log(localStorage.getItem(user.email));
+
+    // removeUserFromScreen();
+    // console.log(user._id);
+
+
+    const parentNode = document.getElementById('users');
+    const childHTML = `<li id=${user.email}> ${user.name}- ${user.email} 
+                        <button style="border:2px solid red" onclick=deleteUser("${user._id}","${user.email}")> Delete User </button>
+                        <button style="border:2px solid green" onclick=editUserDetails('${user.email}','${user.name}','${user._id}')> Edit Details </button>
+    </li>`;
+
+    parentNode.innerHTML = parentNode.innerHTML + childHTML;
+    nameInput.value = '';
+    emailInput.value = '';
+}
+
+function deleteUser(empId, emailId){
+    console.log(emailId);
+    console.log(empId);
+    var result = confirm("Are you sure? Do you want to delete user?");
+    if(result){
+    // localStorage.removeItem(emailId);
+    axios.delete(`https://crudcrud.com/api/41fdb3f8368248508a86382331ebbdfe/dataAppointment/${empId}`)
+    .then((res)=>{
+        console.log(res)
+    })
+    .catch((err)=>{
+        console.log(err)
+    });
+    removeUserFromScreen(emailId);
+    }
+}
+
+
+function editUserDetails(emailId, name, id){
+    document.getElementById('email').value = emailId;
+    document.getElementById('name').value = name;
+  //   const updateObj ={
+  //     name: name,
+  //     email: emailId
+  //   }
+  //   axios.put("https://crudcrud.com/api/41fdb3f8368248508a86382331ebbdfe/dataAppointment/${Id}",updateObjF)
+  //     .then(res=> console.log(res))
+  //     .catch(err=>  console.log(err));
+  // }
+
+    deleteUser(id, emailId);
+}
+
+
+
+function removeUserFromScreen(emailId){
+    const parentNode = document.getElementById('users');
+    const childNodeToBeDeleted = document.getElementById(emailId);
+    // console.log(childNodeToBeDeleted);
+    if(childNodeToBeDeleted){
+        parentNode.removeChild(childNodeToBeDeleted);
+    }
+
+}
+    </script>
+  </body>
+</html>
